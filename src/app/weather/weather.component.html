@@ -1,0 +1,39 @@
+<div class="container">
+	<mat-form-field appearance="fill">
+	  <mat-label>Start Date</mat-label>
+	  <input matInput [matDatepicker]="picker"
+	         [(ngModel)]="startDate"
+	         (dateChange)="filterWeatherData()">
+	  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+	  <mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field appearance="fill">
+	  <mat-label>End Date</mat-label>
+	  <input matInput [matDatepicker]="picker2"
+	         [(ngModel)]="endDate"
+	         (dateChange)="filterWeatherData()">
+	  <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+	  <mat-datepicker #picker2></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field appearance="fill">
+	  	<mat-label>Location</mat-label>
+	  	<mat-select [(ngModel)]="selectedLocation" (selectionChange)="getWeatherDataAndFilter()" name="location">
+	    	<mat-option *ngFor="let location of locations" [value]="location">
+	      		{{location}}
+	    </mat-option>
+	  	</mat-select>
+	</mat-form-field>
+
+	<mat-form-field appearance="fill">
+	  	<mat-label>Metric</mat-label>
+	  	<mat-select [(ngModel)]="selectedMetric" (selectionChange)="getWeatherDataAndFilter()" name="metric">
+	    	<mat-option *ngFor="let metric of metrics" [value]="metric">
+	      		{{metric}}
+	    </mat-option>
+	  	</mat-select>
+	</mat-form-field>
+</div>
+
+<app-weather-graph [data]="filteredWeatherData" [location]="selectedLocation" [metric]="selectedMetric"></app-weather-graph>
