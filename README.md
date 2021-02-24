@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 A live version is available at : http://kisanhub-weatherapp.s3-website.eu-west-2.amazonaws.com/
 
-## Development server
+## How to use 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
+```
+git clone https://github.com/DDZBX/kisanWeatherApp
+cd kisanWeatherApp
+npm install 
+ng serve -o
+```
